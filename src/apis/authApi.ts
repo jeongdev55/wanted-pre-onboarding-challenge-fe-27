@@ -13,3 +13,12 @@ export const signup = async (data:AuthRequest)=>{
 
     return response.data;
 }
+
+export const login = async (data:AuthRequest)=>{
+    const response = await axios.post(`${API_BASE_URL}/users/login`,data);
+
+    const { token } = response.data;
+    setToken(token);
+
+    return response.data;
+}
